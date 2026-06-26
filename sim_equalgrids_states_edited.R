@@ -11,7 +11,7 @@ library(exactextractr)
 
 
 # 2. User-defined inputs: paths and field names
-PATH_WD <- "C:/Users/ss_ar/OneDrive/Work/PIN code/Simulation/Equal Grids - States"
+PATH_WD <- "ENTER YOUR WORKING DIRECTORY"
 PATH_STATE_SHP <- "Shapefiles/STATE_BOUNDARY.shp"
 PATH_DIST_SHP <- "Shapefiles/DISTRICT_BOUNDARY.shp"             # must have: district_id
 PATH_SUBDIST_SHP <- "Shapefiles/SUBDISTRICT_BOUNDARY_fixed.shp"       # must have: subdistrict_id, district_id
@@ -60,7 +60,7 @@ subdist_sf <- st_make_valid(subdist_sf)
 pin_sf <- st_make_valid(pin_sf)
 
 # Initialize parameters for simulation
-n_simulations <- 10
+n_simulations <- 100
 n_hotspots <- 5
 max_radius <- 50000
 intensity_multiplier <- 10
@@ -76,7 +76,6 @@ sf_use_s2(FALSE)
 
 # START SIMULATION LOOP
 for(sim in 1:n_simulations) {
-  sim=1
   cat("Running simulation", sim, "of", n_simulations, "\n")
   
   # Create simulation-specific output directory
@@ -91,8 +90,7 @@ for(sim in 1:n_simulations) {
   sim_accuracy_metrics <- list()
   
   # STATE LOOP
-  for(state_idx in 20:nrow(valid_states)) {
-    state_idx=7
+  for(state_idx in 1:nrow(valid_states)) {
     state <- valid_states[state_idx, ]
     state_name <- state$STATE
     n_cases <- round(state$avg, 0)
