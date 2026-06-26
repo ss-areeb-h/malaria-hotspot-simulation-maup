@@ -34,7 +34,7 @@ The code is designed to support research on spatial epidemiology and hotspot det
 The script assumes a working directory:
 
 ```r
-PATH_WD <- "C:/Users/ss_ar/OneDrive/Work/PIN code/Simulation/Equal Grids - States"
+PATH_WD <- "ENTER WORKING DIRECTORY HERE"
 OUT_DIR <- "outputs2"
 ```
 
